@@ -1,0 +1,23 @@
+<?php /** @var \HimaMage\DependencyExample\Block\Example $block */ ?>
+<div>
+    <h2>Dependency Title </h2>
+</div>
+<p>
+    <?= $block->getMain()->getId(); ?>
+</p>
+<p>
+    <?= $block->getMain()->getInjectable()->getId(); ?>
+</p>
+<p>
+    <?= $block->getMain()->getNonInjectableFactory()->getId(); ?>
+</p>
+<p>
+     Class Abstract : <?= $block->getMain()->getUtil()->getName(); ?>
+</p>
+<p>
+    Class Proxy : <?= $block->getMain()->getHeavyOperation()->getName(); ?>
+</p>
+<p>
+    Virtual Type : <?= $block->getMain()->getDefaultName()->getName(); ?>
+</p>
+

@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <preference for="HimaMage\DependencyExample\Model\InjectableInterface"
+                type="HimaMage\DependencyExample\Model\Injectable" />
+    <preference for="HimaMage\DependencyExample\Model\NonInjectableInterface"
+                type="HimaMage\DependencyExample\Model\NonInjectable" />
+
+
+    <type name="HimaMage\DependencyExample\Model\Main" >
+        <arguments>
+            <argument name="util" xsi:type="object">HimaMage\DependencyExample\Model\Util</argument>
+            <argument name="heavyOperation" xsi:type="object">HimaMage\DependencyExample\Model\HeavyOperation\Proxy</argument>
+            <argument name="defaultName" xsi:type="object">UpperCaseName</argument>
+            <argument name="data" xsi:type="array">
+                <item name="id" xsi:type="string" >Dependency injection via magento </item>
+            </argument>
+        </arguments>
+    </type>
+
+    <virtualType name="UpperCaseName" type="HimaMage\DependencyExample\Model\VirtualType\DefaultName">
+        <arguments>
+            <argument name="name" xsi:type="object">HimaMage\DependencyExample\Model\VirtualType\UpperCaseName</argument>
+        </arguments>
+    </virtualType>
+
+</config>
